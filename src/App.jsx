@@ -1,15 +1,15 @@
 import './App.css';
 import Navbar from './components/Navbar';
 import TextForm from './components/Textform';
-import About from './components/About';
+//import About from './components/About';
 import React, { useState } from 'react';
 import Alert from './components/Alert';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
+//import {
+  //BrowserRouter as Router,
+ // Switch,
+//  Route,
+ // Link
+//} from "react-router-dom";
 
  
 function App() {
@@ -26,7 +26,8 @@ function App() {
       }, 1500);
   }
 
-  const toggleMode = ()=>{
+  const toggleMode = (cls)=>{
+    console.log(cls)
     if(mode === 'light'){
       setMode('dark');
       document.body.style.backgroundColor = '#042743';
@@ -48,24 +49,20 @@ function App() {
   }
   return (
     <>
-    {/* <Navbar title="TextUtils" aboutText="About TextUtils" /> */}
-    {/* <Navbar/> */}
-    <Router>
+   {/*<Router>*/}
     <Navbar title="TextUtils" mode={mode} toggleMode={toggleMode} />
     <Alert alert={alert}/>
     <div className="container my-3">
-    <Switch>
-    {/* /users --> Component 1
-        /users/home --> Component 2 */}
-          <Route exact path="/about">
+   {/*<Switch>*/}
+         {/* <Route exact path="/about">
             <About mode={mode}/>
-          </Route>
-          <Route exact path="/">
+  </Route>*/}
+         {/* <Route exact path="/">*/}
             <TextForm showAlert={showAlert} heading="Textutils - Word counter , character counter, Remove extra spaces " mode={mode}/>
-          </Route>
-    </Switch>
+        { /*</Route>*/}
+   {/*</Switch>*/}
     </div>
-    </Router>
+   {/*</Router>*/}
     </> 
   );
 }
